@@ -1,0 +1,181 @@
+@use "../abstracts/tokens" as *;
+
+.login-modal {
+  position: relative;
+  width: min(100%, 430px);
+  padding: 34px;
+  border-radius: 22px;
+  background: $color-background;
+  box-shadow: 0 30px 80px #07182b40;
+
+  &__sign-up {
+    width: 100%;
+    margin-top: 4px;
+    text-align: end;
+    display: inline-block;
+    color: $color-primary;
+    font-size: $font-size-xs;
+    cursor: pointer;
+  }
+
+  &__backdrop {
+    position: fixed;
+    inset: 0;
+    z-index: 50;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    overflow-y: auto;
+    background: #0d1c39a8;
+  }
+
+  &__close {
+    position: absolute;
+    top: 13px;
+    right: 18px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 32px;
+    height: 32px;
+    padding: 0;
+    border: 0;
+    background: transparent;
+    color: $color-text-secondary;
+    font-size: 27px;
+    line-height: 1;
+    cursor: pointer;
+
+    &:hover {
+      color: $color-text-primary;
+    }
+  }
+
+  &__title {
+    margin: 0 30px 7px 0;
+    color: $color-text-primary;
+    font-size: 26px;
+    font-weight: 800;
+    line-height: 1.3;
+  }
+
+  &__description {
+    margin: 0 0 26px;
+    color: $color-text-secondary;
+    font-size: 13px;
+    line-height: 1.7;
+  }
+
+  &__form {
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__field {
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+    margin-bottom: 17px;
+  }
+
+  &__label {
+    color: $color-text-primary;
+    font-size: 13px;
+    font-weight: 750;
+  }
+
+  &__input {
+    width: 100%;
+    min-height: 46px;
+    padding: 13px 15px;
+    border: 1px solid #dfe6f1;
+    border-radius: 10px;
+    outline: none;
+    background: #fff;
+    color: $color-text-primary;
+    font-family: inherit;
+    font-size: 14px;
+    transition: border-color 0.2s ease;
+
+    &::placeholder {
+      color: #9aa5b6;
+    }
+
+    &:focus {
+      border-color: #2993ee;
+    }
+  }
+
+  &__submit {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    min-height: 48px;
+    margin-top: 3px;
+    padding: 14px 25px;
+    border: 0;
+    border-radius: 11px;
+    background: $gradient-primary;
+    color: #fff;
+    font-family: inherit;
+    font-size: 14px;
+    font-weight: 750;
+    cursor: pointer;
+    box-shadow: 0 9px 22px #2278e82c;
+    transition:
+      transform 0.2s ease,
+      box-shadow 0.2s ease;
+
+    &:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 13px 28px #2278e840;
+    }
+  }
+
+  &__message {
+    margin: 12px 0 0;
+    color: #188768;
+    font-size: 13px;
+    line-height: 1.6;
+  }
+
+  &__close,
+  &__input,
+  &__submit {
+    &:focus-visible {
+      outline: 3px solid rgba(22, 141, 245, 0.3);
+      outline-offset: 3px;
+    }
+  }
+
+  @media (max-width: 500px) {
+    width: 100%;
+    padding: 28px 22px;
+    border-radius: 18px;
+
+    &__backdrop {
+      padding: 16px;
+    }
+
+    &__title {
+      font-size: 23px;
+    }
+
+    &__description {
+      margin-bottom: 22px;
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    &__input,
+    &__submit {
+      transition: none;
+    }
+
+    &__submit:hover {
+      transform: none;
+    }
+  }
+}

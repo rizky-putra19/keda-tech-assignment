@@ -1,0 +1,212 @@
+@use "../abstracts/tokens" as *;
+
+.about {
+  padding: 100px 0;
+  background: $color-background;
+
+  &__container {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    align-items: center;
+    gap: 75px;
+  }
+
+  &__illustration {
+    position: relative;
+    display: grid;
+    place-items: center;
+    min-height: 340px;
+    overflow: hidden;
+    border-radius: 32px;
+    background: linear-gradient(145deg, #e8f8ff, #f1e8ff);
+
+    &::before {
+      content: "";
+      position: absolute;
+      width: 250px;
+      height: 250px;
+      border-radius: 50%;
+      background: linear-gradient(130deg, #46c4f5, #9870e5);
+      filter: blur(3px);
+      opacity: 0.18;
+      pointer-events: none;
+    }
+  }
+
+  &__stock-card {
+    position: relative;
+    width: 68%;
+    padding: 22px;
+    border-radius: 20px;
+    background: #fff;
+    box-shadow: 0 20px 50px #3c5da72c;
+  }
+
+  &__stock-title {
+    display: flex;
+    align-items: center;
+    gap: 9px;
+    margin: 0 0 16px;
+    color: $color-text-primary;
+    font-size: 18px;
+    font-weight: 800;
+  }
+
+  &__stock-icon {
+    display: block;
+    width: 22px;
+    height: 22px;
+    flex-shrink: 0;
+    object-fit: contain;
+  }
+
+  &__progress-list {
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__progress-item {
+    margin-bottom: 0;
+  }
+
+  &__progress-label {
+    display: block;
+    color: $color-text-primary;
+    font-size: 12px;
+    line-height: 1.5;
+  }
+
+  &__progress-track {
+    height: 12px;
+    margin: 17px 0;
+    overflow: hidden;
+    border-radius: 20px;
+    background: #e9f1ff;
+  }
+
+  &__progress-fill {
+    display: block;
+    height: 100%;
+    border-radius: 20px;
+    background: linear-gradient(90deg, #168df5, #a06ee0);
+  }
+
+  &__stock-status {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    color: #178fe6;
+    font-size: 14px;
+    font-weight: 700;
+  }
+
+  &__status-icon {
+    display: block;
+    width: 16px;
+    height: 16px;
+    flex-shrink: 0;
+    object-fit: contain;
+  }
+
+  &__content {
+    min-width: 0;
+  }
+
+  &__eyebrow {
+    display: inline-block;
+    color: #2689ec;
+    font-size: 12px;
+    font-weight: 850;
+    letter-spacing: 0.14em;
+  }
+
+  &__title {
+    margin: 14px 0;
+    color: $color-text-primary;
+    font-size: clamp(29px, 3.5vw, 43px);
+    font-weight: 800;
+    line-height: 1.2;
+    letter-spacing: -0.045em;
+  }
+
+  &__description {
+    margin: 0;
+    color: $color-text-secondary;
+    font-size: 15px;
+    line-height: 1.8;
+  }
+
+  &__features {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 15px;
+    margin-top: 26px;
+  }
+
+  &__feature {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    min-width: 0;
+    padding: 20px;
+    border: 1px solid $color-border;
+    border-radius: 16px;
+    background: #fff;
+  }
+
+  &__feature-icon {
+    display: block;
+    width: 24px;
+    height: 24px;
+    object-fit: contain;
+  }
+
+  &__feature-title {
+    margin: 9px 0;
+    color: $color-text-primary;
+    font-size: 14px;
+    font-weight: 800;
+    line-height: 1.4;
+  }
+
+  &__feature-description {
+    margin: 0;
+    color: $color-text-secondary;
+    font-size: 13px;
+    line-height: 1.6;
+  }
+
+  @media (max-width: 850px) {
+    padding: 75px 0;
+
+    &__container {
+      grid-template-columns: 1fr;
+      gap: 35px;
+    }
+
+    &__features {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  @media (max-width: 500px) {
+    &__illustration {
+      min-height: 310px;
+      border-radius: 24px;
+    }
+
+    &__stock-card {
+      width: 82%;
+    }
+
+    &__title {
+      font-size: clamp(29px, 7.5vw, 36px);
+    }
+
+    &__feature {
+      padding: 18px;
+    }
+  }
+}

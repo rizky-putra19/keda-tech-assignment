@@ -1,0 +1,48 @@
+export const PRICING_PLANS = [
+  {
+    id: "basic",
+    name: "Basic",
+    description: "Untuk bisnis kecil yang baru memulai.",
+    price: "Rp 99rb",
+    period: "/ bulan",
+    popular: false,
+    features: [
+      "Mencatat barang masuk",
+      "Mencatat barang keluar",
+      "Mencatat hasil keuntungan",
+    ],
+    buttonLabel: "Pilih Basic",
+  },
+  {
+    id: "business",
+    name: "Business",
+    description: "Untuk bisnis yang ingin bertumbuh.",
+    price: "Rp 249rb",
+    period: "/ bulan",
+    popular: true,
+    features: [
+      "Mencatat barang masuk dan keluar",
+      "Mencatat keuntungan",
+      "Analisis penjualan dengan chart",
+      "Support 24/7",
+    ],
+    buttonLabel: "Pilih Business",
+  },
+  {
+    id: "entrepreneur",
+    name: "Entrepreneur",
+    description: "Untuk bisnis yang butuh insight lebih.",
+    price: "Rp 499rb",
+    period: "/ bulan",
+    popular: false,
+    features: [
+      "Mencatat barang masuk dan keluar",
+      "Mencatat keuntungan",
+      "Analisis penjualan dengan chart",
+      "Support 24/7",
+      "Export data ke Excel",
+      "AI prediksi penghasilan",
+    ],
+    buttonLabel: "Pilih Entrepreneur",
+  },
+];

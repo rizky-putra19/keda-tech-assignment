@@ -1,0 +1,235 @@
+@use "../abstracts/tokens" as *;
+
+.chatbot {
+  position: fixed;
+  right: 24px;
+  bottom: 24px;
+  z-index: 110;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 16px;
+
+  &__floating-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 60px;
+    height: 60px;
+    border: none;
+    border-radius: 50%;
+    background: $gradient-primary;
+    box-shadow: 0 10px 30px rgba(22, 141, 245, 0.35);
+    cursor: pointer;
+    transition:
+      transform 0.2s ease,
+      box-shadow 0.2s ease;
+
+    &:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 14px 35px rgba(22, 141, 245, 0.45);
+    }
+  }
+
+  &__floating-icon {
+    width: 28px;
+    height: 28px;
+    object-fit: contain;
+  }
+
+  &__panel {
+    display: flex;
+    flex-direction: column;
+    width: 360px;
+    height: 460px;
+    max-height: calc(100dvh - 120px);
+    overflow: hidden;
+    border: 1px solid $color-border;
+    border-radius: 20px;
+    background: #fff;
+    box-shadow: 0 20px 60px rgba(20, 40, 80, 0.2);
+  }
+
+  &__header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    padding: 18px;
+    background: $gradient-primary;
+    color: #fff;
+  }
+
+  &__header-info {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    min-width: 0;
+  }
+
+  &__avatar {
+    display: grid;
+    place-items: center;
+    width: 40px;
+    height: 40px;
+    flex-shrink: 0;
+    border-radius: 12px;
+    background: rgba(255, 255, 255, 0.2);
+
+    img {
+      width: 24px;
+      height: 24px;
+    }
+  }
+
+  &__heading {
+    h3 {
+      margin: 0;
+      color: #fff;
+      font-size: 14px;
+      font-weight: 800;
+    }
+
+    p {
+      margin: 4px 0 0;
+      color: rgba(255, 255, 255, 0.85);
+      font-size: 11px;
+    }
+  }
+
+  &__close {
+    display: grid;
+    place-items: center;
+    width: 30px;
+    height: 30px;
+    flex-shrink: 0;
+    border: none;
+    border-radius: 8px;
+    background: transparent;
+    cursor: pointer;
+
+    &:hover {
+      background: rgba(255, 255, 255, 0.15);
+    }
+
+    img {
+      width: 20px;
+      height: 20px;
+    }
+  }
+
+  &__messages {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    gap: 12px;
+    min-height: 0;
+    padding: 18px;
+    overflow-y: auto;
+    background: #f8faff;
+  }
+
+  &__message {
+    max-width: 85%;
+    padding: 12px 14px;
+    border-radius: 14px;
+    font-size: 13px;
+    line-height: 1.6;
+    overflow-wrap: anywhere;
+
+    &--assistant {
+      align-self: flex-start;
+      border: 1px solid $color-border;
+      border-bottom-left-radius: 4px;
+      background: #fff;
+      color: $color-text-primary;
+    }
+
+    &--user {
+      align-self: flex-end;
+      border-bottom-right-radius: 4px;
+      background: $gradient-primary;
+      color: #fff;
+    }
+  }
+
+  &__form {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 14px;
+    border-top: 1px solid $color-border;
+    background: #fff;
+  }
+
+  &__input {
+    flex: 1;
+    min-width: 0;
+    padding: 12px;
+    border: 1px solid #dfe6f1;
+    border-radius: 10px;
+    outline: none;
+    font-family: inherit;
+    font-size: 13px;
+
+    &:focus {
+      border-color: $color-primary;
+    }
+  }
+
+  &__send {
+    display: grid;
+    place-items: center;
+    width: 40px;
+    height: 40px;
+    flex-shrink: 0;
+    border: none;
+    border-radius: 10px;
+    background: $gradient-primary;
+    cursor: pointer;
+
+    &:disabled {
+      opacity: 0.5;
+      cursor: not-allowed;
+    }
+
+    img {
+      width: 19px;
+      height: 19px;
+    }
+  }
+
+  &__floating-button,
+  &__close,
+  &__send {
+    &:focus-visible {
+      outline: 3px solid rgba(22, 141, 245, 0.35);
+      outline-offset: 3px;
+    }
+  }
+
+  @media (max-width: 500px) {
+    right: 16px;
+    bottom: 16px;
+
+    &__floating-button {
+      width: 54px;
+      height: 54px;
+    }
+
+    &__panel {
+      width: min(360px, calc(100vw - 32px));
+      height: min(460px, calc(100dvh - 100px));
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    &__floating-button {
+      transition: none;
+
+      &:hover {
+        transform: none;
+      }
+    }
+  }
+}
